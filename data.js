@@ -112,19 +112,19 @@ const SITE = {
         name: 'Pradeep Reddy',
         role: 'Founding Director',
         // photo: 'images/team/pradeep.jpg',
-        bio: 'Over 27 years of experience in real estate development and civil engineering across South India.',
+        bio: 'Civil engineer with 27+ years of experience delivering residential and infrastructure projects across South India.',
       },
       {
         name: 'Srinivas Reddy',
         role: 'Founding Director',
         // photo: 'images/team/srinivas.jpg',
-        bio: 'Structural engineering expert leading large-scale residential and infrastructure projects.',
+        bio: 'Civil engineer specialising in large-scale construction, project planning, and quality execution.',
       },
       {
         name: 'Venkatesh Reddy',
         role: 'Founding Director',
         // photo: 'images/team/venkatesh.jpg',
-        bio: 'Driving growth, customer relationships, and new project launches since 2005.',
+        bio: 'Structural designer with deep expertise in residential and commercial structural systems.',
       },
     ],
     pastProjects: [

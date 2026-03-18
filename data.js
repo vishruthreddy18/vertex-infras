@@ -110,19 +110,19 @@ const SITE = {
     team: [
       {
         name: 'Pradeep Reddy',
-        role: 'Founder & Managing Director',
+        role: 'Founding Director',
         // photo: 'images/team/pradeep.jpg',
         bio: 'Over 27 years of experience in real estate development and civil engineering across South India.',
       },
       {
         name: 'Srinivas Reddy',
-        role: 'Director, Engineering & Projects',
+        role: 'Founding Director',
         // photo: 'images/team/srinivas.jpg',
         bio: 'Structural engineering expert leading large-scale residential and infrastructure projects.',
       },
       {
         name: 'Venkatesh Reddy',
-        role: 'Director, Sales & Business Development',
+        role: 'Founding Director',
         // photo: 'images/team/venkatesh.jpg',
         bio: 'Driving growth, customer relationships, and new project launches since 2005.',
       },

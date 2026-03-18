@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return `<li><a href="${l.href}"${active}>${l.text}</a></li>`;
     }).join('');
     into('navbar', `
-      <a href="index.html" class="logo">${SITE.name}<span>.</span></a>
+      <a href="index.html" class="logo">${SITE.name}</a>
       <ul class="nav-links" id="navLinks">${links}</ul>
       <a href="contact.html" class="nav-cta">Enquire Now</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     into('footer', `
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="index.html" class="logo">${SITE.name}<span>.</span></a>
+          <a href="index.html" class="logo">${SITE.name}</a>
           <p>${f.desc}</p>
         </div>
         ${cols}
@@ -78,6 +78,24 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="footer-copy">&copy; ${new Date().getFullYear()} ${SITE.fullName}. All rights reserved.</span>
         <div class="social-links">${socialLinks}</div>
       </div>`);
+  };
+
+  // ── SCROLL TO TOP BUTTON (all pages) ──────────
+  const renderScrollTop = () => {
+    const btn = document.createElement('button');
+    btn.className = 'scroll-top-btn';
+    btn.setAttribute('aria-label', 'Scroll to top');
+    btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>`;
+    document.body.appendChild(btn);
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
+      const halfPage = window.innerHeight * 0.5;
+      btn.classList.toggle('visible', window.scrollY > halfPage);
+    }, { passive: true });
   };
 
 
@@ -111,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="${h.ctaSecondary.href}" class="btn-ghost">${h.ctaSecondary.text}</a>
         </div>
       </div>
-      <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>`);
+      <div class="hero-scroll"><div class="scroll-line"></div></div>`);
   };
 
   const renderStats = () => {
@@ -150,7 +168,29 @@ document.addEventListener('DOMContentLoaded', () => {
           ${paras}
           <div class="about-values reveal${delay(a.paragraphs.length + 1)}">${values}</div>
         </div>
-      </div></div>`);
+      </div></div>
+      ${a.team ? `
+      <div class="container" style="margin-top:6rem">
+        <div class="section-intro center reveal">
+          <span class="section-tag">Our Leadership</span>
+          <h2 class="section-title">The Team Behind the Vision</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="team-grid">
+          ${a.team.map((member, i) => `
+          <div class="team-card reveal${delay(i)}">
+            <div class="team-photo">
+              ${member.photo
+                ? `<img src="${member.photo}" alt="${member.name}" loading="lazy">`
+                : `<div class="team-placeholder"><span>${initials(member.name)}</span></div>`}
+            </div>
+            <h3 class="team-name">${member.name}</h3>
+            <p class="team-role">${member.role}</p>
+            <p class="team-bio">${member.bio}</p>
+          </div>`).join('')}
+        </div>
+      </div>` : ''}
+    `);
   };
 
   const renderProjects = () => {
@@ -172,6 +212,31 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>`;
     }).join('');
+    const pastHtml = p.pastProjects && p.pastProjects.length ? `
+      <div class="container-wide" style="margin-top:6rem">
+        <div class="section-intro reveal">
+          <span class="section-tag">Completed</span>
+          <h2 class="section-title">Past Projects</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="past-grid">
+          ${p.pastProjects.map((proj, i) => `
+          <div class="past-card reveal${delay(i % 3)}">
+            <div class="past-thumb">
+              ${proj.image
+                ? `<img src="${proj.image}" alt="${proj.title}" loading="lazy">`
+                : `<div class="past-placeholder"><span>${proj.title.charAt(0)}</span></div>`}
+              <div class="past-status">${proj.status}</div>
+            </div>
+            <div class="past-info">
+              <h3>${proj.title}</h3>
+              <p>${proj.type} &middot; ${proj.location}</p>
+              <span class="past-year">${proj.year}</span>
+            </div>
+          </div>`).join('')}
+        </div>
+      </div>` : '';
+
     into('projects', `
       <div class="container-wide">
         <div class="projects-header">
@@ -183,7 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
         <div class="projects-grid">${cards}</div>
-      </div>`);
+      </div>
+      ${pastHtml}`);
   };
 
   const renderTestimonials = () => {
@@ -285,6 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="showcase-grain"></div>
         <div class="showcase-content">
           <div class="showcase-text">
+            ${item.badge ? `<div class="showcase-badge">${item.badge}</div>` : ''}
             <div class="showcase-tag">${item.tag}</div>
             <p class="showcase-subtitle">${item.subtitle}</p>
             <h2 class="showcase-title sc-reveal">${item.title}</h2>
@@ -394,6 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Nav + footer on every page
   renderNav();
   renderFooter();
+  renderScrollTop();
 
   // Page-specific sections — only runs if the
   // container exists on the current page's HTML

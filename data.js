@@ -7,9 +7,9 @@
 const SITE = {
 
   // ── BRAND ─────────────────────────────────────
-  name: 'Vertex',
+  name: 'Vertex Infras',
   fullName: 'Vertex Infras',
-  tagline: 'Civil Engineering Excellence',
+  tagline: 'Towards Finest Engineering',
   email: 'hello@vertexinfras.com',
   projectsEmail: 'projects@vertexinfras.com',
   phone: ['+91 22 4567 8900', '+91 98765 43210'],
@@ -49,8 +49,6 @@ const SITE = {
   stats: [
     { value: 150, label: 'Projects Delivered' },
     { value: 12,  label: 'Years of Excellence' },
-    { value: 50,  label: 'Expert Engineers' },
-    { value: 8,   label: 'States Covered' },
   ],
 
   // ── FEATURED PROJECTS (home page showcase) ────
@@ -62,6 +60,7 @@ const SITE = {
       title: 'Metro River Bridge',
       subtitle: '1.2 km cable-stayed landmark',
       tag: 'Now Complete',
+      badge: 'Ready to Move-In',
       desc: 'Connecting two major urban districts with a dual carriageway, designed to carry 80,000 vehicles daily.',
       stat1: { value: '1.2 km', label: 'Total Span' },
       stat2: { value: '₹240 Cr', label: 'Project Value' },
@@ -74,6 +73,7 @@ const SITE = {
       title: 'Green Valley Township',
       subtitle: 'Where nature meets modern living',
       tag: 'Booking Open',
+      badge: 'Selling Fast',
       desc: 'An eco-friendly integrated township with solar-powered amenities, smart water management, and lush green landscapes.',
       stat1: { value: '120', label: 'Acres' },
       stat2: { value: '1,200+', label: 'Homes' },
@@ -85,7 +85,8 @@ const SITE = {
     {
       title: 'Skyline Residences',
       subtitle: 'Luxury redefined at every floor',
-      tag: 'Pre-Launch',
+      tag: 'Coming Soon',
+      badge: 'Pre-Launch',
       desc: 'Twin 40-story towers with panoramic city views, infinity pool, and world-class amenities in the heart of Mumbai.',
       stat1: { value: '40', label: 'Storeys' },
       stat2: { value: '2 & 3 BHK', label: 'Configurations' },
@@ -111,6 +112,51 @@ const SITE = {
       { icon: 'layers', title: 'BIM Integrated',    desc: 'Advanced 3D modeling & planning' },
       { icon: 'team',   title: 'Expert Team',       desc: '50+ licensed professional engineers' },
       { icon: 'shield', title: 'Safety First',      desc: 'Zero-incident commitment on every site' },
+    ],
+    // Team members — add photo paths when ready
+    team: [
+      {
+        name: 'Muheeb Ahmed',
+        role: 'Founder & Managing Director',
+        // photo: 'images/team/muheeb.jpg',
+        bio: 'Over 25 years of experience in real estate development across South India.',
+      },
+      {
+        name: 'Priya Sharma',
+        role: 'Chief Architect',
+        // photo: 'images/team/priya.jpg',
+        bio: 'Award-winning architect specializing in sustainable residential design.',
+      },
+      {
+        name: 'Rajiv Menon',
+        role: 'Head of Engineering',
+        // photo: 'images/team/rajiv.jpg',
+        bio: 'Structural engineering expert with 18+ years in high-rise construction.',
+      },
+      {
+        name: 'Deepa Nair',
+        role: 'VP, Sales & Marketing',
+        // photo: 'images/team/deepa.jpg',
+        bio: 'Driving customer relationships and community engagement since 2010.',
+      },
+    ],
+    // Past/completed projects shown in a separate section below
+    pastProjects: [
+      {
+        title: 'Vertex Venezia', location: 'East Bangalore',
+        type: '2 BHK Apartments', status: 'Delivered', year: 2020,
+        // image: 'images/past/venezia.jpg',
+      },
+      {
+        title: 'Vertex Fairmount', location: 'South Bangalore',
+        type: '2 & 3 BHK Apartments', status: 'Delivered', year: 2019,
+        // image: 'images/past/fairmount.jpg',
+      },
+      {
+        title: 'Vertex Wellington', location: 'Gunjur, Bangalore',
+        type: '2 & 3 BHK Apartments', status: 'Delivered', year: 2022,
+        // image: 'images/past/wellington.jpg',
+      },
     ],
   },
 
@@ -154,6 +200,24 @@ const SITE = {
         tag: 'Industrial', title: 'Industrial Corridor Development', bg: 'proj-6',
         desc: '200-acre industrial corridor with road network and complete utility infrastructure.',
         location: 'Hyderabad', year: 2024, stat: '200 Acres',
+      },
+    ],
+    // Past/completed projects shown in a separate grid
+    pastProjects: [
+      {
+        title: 'Vertex Venezia', location: 'East Bangalore',
+        type: '2 BHK Apartments', status: 'Delivered', year: 2020,
+        // image: 'images/past/venezia.jpg',
+      },
+      {
+        title: 'Vertex Fairmount', location: 'South Bangalore',
+        type: '2 & 3 BHK Apartments', status: 'Delivered', year: 2019,
+        // image: 'images/past/fairmount.jpg',
+      },
+      {
+        title: 'Vertex Wellington', location: 'Gunjur, Bangalore',
+        type: '2 & 3 BHK Apartments', status: 'Delivered', year: 2022,
+        // image: 'images/past/wellington.jpg',
       },
     ],
   },

@@ -591,8 +591,8 @@ a { text-decoration: none; color: inherit; }
 
 /* ── TEAM ───────────────────────────────────────── */
 .team-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; max-width: 900px; margin: 0 auto;
 }
 .team-card {
   text-align: center; padding: 2rem 1.5rem;
@@ -623,7 +623,7 @@ a { text-decoration: none; color: inherit; }
 }
 .team-bio { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; }
 
-@media (max-width: 968px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
 
 /* ── PAST PROJECTS ─────────────────────────────── */

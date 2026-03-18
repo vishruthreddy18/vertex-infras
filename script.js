@@ -128,8 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="${h.ctaPrimary.href}" class="btn-gold">${h.ctaPrimary.text}</a>
           <a href="${h.ctaSecondary.href}" class="btn-ghost">${h.ctaSecondary.text}</a>
         </div>
-      </div>
-      <div class="hero-scroll"><div class="scroll-line"></div></div>`);
+      </div>`);
   };
 
   const renderStats = () => {
@@ -195,23 +194,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const renderProjects = () => {
     const p = SITE.projects;
-    const cards = p.items.map((proj, i) => {
-      const img = proj.image ? `<img src="${proj.image}" alt="${proj.title}" loading="lazy">` : '';
-      return `
-      <div class="project-card reveal${delay(i % 3)}">
-        <div class="card-bg ${proj.bg}">${img}</div>
-        <div class="overlay"></div>
-        <div class="card-content">
-          <div class="card-tag">${proj.tag}</div>
-          <h3>${proj.title}</h3>
-          <p class="card-desc">${proj.desc}</p>
-          <div class="card-meta">
-            <span>${proj.location}</span><span>${proj.year}</span><span>${proj.stat}</span>
+
+    const buildCards = (filter) => {
+      const filtered = filter === 'all' ? p.items : p.items.filter(proj => proj.category === filter);
+      if (!filtered.length) return `<p class="no-results">No projects found in this category.</p>`;
+      return filtered.map((proj, i) => {
+        const img = proj.image ? `<img src="${proj.image}" alt="${proj.title}" loading="lazy">` : '';
+        return `
+        <a href="project-detail.html?id=${proj.id}" class="project-card reveal${delay(i % 3)}" data-category="${proj.category}">
+          <div class="card-bg ${proj.bg}">${img}</div>
+          <div class="overlay"></div>
+          <div class="card-content">
+            <div class="card-tag">${proj.tag}</div>
+            <h3>${proj.title}</h3>
+            <p class="card-desc">${proj.desc}</p>
+            <div class="card-meta">
+              <span>${proj.location}</span><span>${proj.year}</span><span>${proj.stat}</span>
+            </div>
+            <div class="card-arrow">View Details ${icon('arrow')}</div>
           </div>
-          <div class="card-arrow">View Details ${icon('arrow')}</div>
-        </div>
-      </div>`;
-    }).join('');
+        </a>`;
+      }).join('');
+    };
+
+    const buildPastCards = (filter) => {
+      if (!p.pastProjects || !p.pastProjects.length) return '';
+      const filtered = filter === 'all' ? p.pastProjects : p.pastProjects.filter(proj => proj.category === filter);
+      if (!filtered.length) return `<p class="no-results">No past projects found in this category.</p>`;
+      return filtered.map((proj, i) => `
+        <a href="project-detail.html?id=${proj.id}" class="past-card reveal${delay(i % 3)}">
+          <div class="past-thumb">
+            ${proj.image
+              ? `<img src="${proj.image}" alt="${proj.title}" loading="lazy">`
+              : `<div class="past-placeholder"><span>${proj.title.charAt(0)}</span></div>`}
+            <div class="past-status">${proj.status}</div>
+          </div>
+          <div class="past-info">
+            <h3>${proj.title}</h3>
+            <p>${proj.type} &middot; ${proj.location}</p>
+            <span class="past-year">${proj.year}</span>
+          </div>
+        </a>`).join('');
+    };
+
+    const cards = buildCards('all');
     const pastHtml = p.pastProjects && p.pastProjects.length ? `
       <div class="container-wide" style="margin-top:6rem">
         <div class="section-intro reveal">
@@ -219,22 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h2 class="section-title">Past Projects</h2>
           <div class="section-line"></div>
         </div>
-        <div class="past-grid">
-          ${p.pastProjects.map((proj, i) => `
-          <div class="past-card reveal${delay(i % 3)}">
-            <div class="past-thumb">
-              ${proj.image
-                ? `<img src="${proj.image}" alt="${proj.title}" loading="lazy">`
-                : `<div class="past-placeholder"><span>${proj.title.charAt(0)}</span></div>`}
-              <div class="past-status">${proj.status}</div>
-            </div>
-            <div class="past-info">
-              <h3>${proj.title}</h3>
-              <p>${proj.type} &middot; ${proj.location}</p>
-              <span class="past-year">${proj.year}</span>
-            </div>
-          </div>`).join('')}
-        </div>
+        <div class="past-grid" id="past-grid">${buildPastCards('all')}</div>
       </div>` : '';
 
     into('projects', `
@@ -247,9 +258,33 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="section-desc">${p.desc}</p>
           </div>
         </div>
-        <div class="projects-grid">${cards}</div>
+        <div class="proj-filters">
+          <button class="proj-filter active" data-filter="all">All</button>
+          <button class="proj-filter" data-filter="apartments">Apartments</button>
+          <button class="proj-filter" data-filter="villas">Villas</button>
+          <button class="proj-filter" data-filter="other">Other Projects</button>
+        </div>
+        <div class="projects-grid" id="projects-grid">${cards}</div>
       </div>
       ${pastHtml}`);
+
+    document.querySelectorAll('.proj-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.proj-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        const grid = document.getElementById('projects-grid');
+        grid.innerHTML = buildCards(filter);
+        grid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+
+        const pastGrid = document.getElementById('past-grid');
+        if (pastGrid) {
+          pastGrid.innerHTML = buildPastCards(filter);
+          pastGrid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        }
+      });
+    });
   };
 
   const renderTestimonials = () => {
@@ -457,6 +492,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   };
 
+  const renderProjectDetail = () => {
+    const el = document.getElementById('project-detail');
+    if (!el) return;
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const allProjects = [...SITE.projects.items, ...SITE.projects.pastProjects];
+    const proj = allProjects.find(p => p.id === id);
+    if (!proj) { el.innerHTML = `<div class="container" style="padding:8rem 2rem;text-align:center"><h2>Project not found.</h2><a href="projects.html" class="btn-gold" style="margin-top:2rem;display:inline-block">Back to Projects</a></div>`; return; }
+    document.title = `${proj.title} | Vertex Infras`;
+
+    const highlightItems = (proj.highlights || []).map(h => `<li class="pd-highlight-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>${h}</li>`).join('');
+    const amenityItems = (proj.amenities || []).map(a => `<div class="pd-amenity">${a}</div>`).join('');
+    const floorPlanItems = (proj.floorPlans || []).map(f => `
+      <div class="pd-floor-card">
+        <div class="pd-floor-placeholder"><span>${f.label}</span></div>
+        <div class="pd-floor-info"><strong>${f.label}</strong><span>${f.size}</span></div>
+      </div>`).join('');
+
+    el.innerHTML = `
+      <div class="pd-hero ${proj.bg}">
+        <div class="pd-hero-overlay"></div>
+        <div class="pd-hero-content">
+          <a href="projects.html" class="pd-back">← Back to Projects</a>
+          <div class="pd-hero-tag">${proj.tag}</div>
+          <h1>${proj.title}</h1>
+          <p class="pd-hero-loc">${proj.location} &nbsp;·&nbsp; ${proj.year}</p>
+          <span class="pd-status">${proj.status}</span>
+        </div>
+      </div>
+
+      <div class="pd-body">
+        <div class="pd-main">
+
+          <section class="pd-section reveal">
+            <h2 class="pd-section-title">Overview</h2>
+            <p class="pd-desc">${proj.fullDesc}</p>
+            <div class="pd-specs">
+              <div class="pd-spec"><span class="pd-spec-label">Units</span><span class="pd-spec-val">${proj.specs.units}</span></div>
+              <div class="pd-spec"><span class="pd-spec-label">Sizes</span><span class="pd-spec-val">${proj.specs.sizes}</span></div>
+              <div class="pd-spec"><span class="pd-spec-label">Possession</span><span class="pd-spec-val">${proj.specs.possession}</span></div>
+            </div>
+          </section>
+
+          <section class="pd-section reveal">
+            <h2 class="pd-section-title">Gallery</h2>
+            <div class="pd-gallery">
+              ${[1,2,3,4].map(n => `<div class="pd-gallery-item ${proj.bg}" style="opacity:${0.5 + n*0.1}"><span>Image ${n}</span></div>`).join('')}
+            </div>
+            <p class="pd-gallery-note">Add images to the <code>images/</code> folder and update the project data to display real photos.</p>
+          </section>
+
+          ${highlightItems ? `
+          <section class="pd-section reveal">
+            <h2 class="pd-section-title">Highlights</h2>
+            <ul class="pd-highlights">${highlightItems}</ul>
+          </section>` : ''}
+
+          ${amenityItems ? `
+          <section class="pd-section reveal">
+            <h2 class="pd-section-title">Amenities</h2>
+            <div class="pd-amenities">${amenityItems}</div>
+          </section>` : ''}
+
+          ${floorPlanItems ? `
+          <section class="pd-section reveal">
+            <h2 class="pd-section-title">Floor Plans</h2>
+            <div class="pd-floor-plans">${floorPlanItems}</div>
+            <p class="pd-gallery-note">Upload actual floor plan images to replace the placeholders above.</p>
+          </section>` : ''}
+
+        </div>
+
+        <aside class="pd-sidebar">
+          <div class="pd-enquire-card reveal">
+            <h3>Interested in this project?</h3>
+            <p>Get in touch with our team for pricing, availability, and a site visit.</p>
+            <a href="contact.html" class="btn-gold" style="display:block;text-align:center;margin-bottom:1rem">Enquire Now</a>
+            ${proj.brochure && proj.brochure !== '#' ? `<a href="${proj.brochure}" class="btn-ghost" style="display:block;text-align:center" download>Download Brochure</a>` : `<button class="btn-ghost" style="width:100%;cursor:not-allowed;opacity:0.5" disabled>Brochure Coming Soon</button>`}
+            <div class="pd-contact-line"><a href="tel:${SITE.phone[0]}">${SITE.phone[0]}</a></div>
+            <div class="pd-contact-line"><a href="mailto:${SITE.projectsEmail}">${SITE.projectsEmail}</a></div>
+          </div>
+        </aside>
+      </div>`;
+  };
+
   // ═══ RENDER ═══════════════════════════════════
   // Nav + footer on every page
   renderNav();
@@ -473,6 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProjects();
   renderTestimonials();
   renderContact();
+  renderProjectDetail();
 
 
   // ═══ INTERACTIONS ═════════════════════════════

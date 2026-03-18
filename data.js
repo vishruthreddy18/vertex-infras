@@ -1,8 +1,4 @@
-// ═══════════════════════════════════════════════
-//  VERTEX INFRAS — Site Data
-//  Edit this file to update all website content.
-//  No need to touch any HTML or script.js.
-// ═══════════════════════════════════════════════
+// Edit this file to update site content.
 
 const SITE = {
 
@@ -51,10 +47,7 @@ const SITE = {
     { value: 12,  label: 'Years of Excellence' },
   ],
 
-  // ── FEATURED PROJECTS (home page showcase) ────
-  // Apple-style full-bleed sections on the home page.
-  // To add a new one, copy any object and edit.
-  // Uncomment `image` when you have real photos.
+  // Full-bleed sections on the home page. Uncomment `image` when you have real photos.
   featured: [
     {
       title: 'Metro River Bridge',
@@ -113,7 +106,7 @@ const SITE = {
       { icon: 'team',   title: 'Expert Team',       desc: '50+ licensed professional engineers' },
       { icon: 'shield', title: 'Safety First',      desc: 'Zero-incident commitment on every site' },
     ],
-    // Team members — add photo paths when ready
+    // Add photo paths when ready
     team: [
       {
         name: 'Muheeb Ahmed',
@@ -140,7 +133,6 @@ const SITE = {
         bio: 'Driving customer relationships and community engagement since 2010.',
       },
     ],
-    // Past/completed projects shown in a separate section below
     pastProjects: [
       {
         title: 'Vertex Venezia', location: 'East Bangalore',
@@ -160,11 +152,7 @@ const SITE = {
     ],
   },
 
-  // ── PROJECTS (projects page) ──────────────────
-  // Full list shown on projects.html.
-  // To add a project: copy any object and edit.
-  // `bg` is a CSS class for the card gradient (proj-1 … proj-6).
-  // `image` (optional): path to a real photo.
+  // `bg`: card gradient class (proj-1 … proj-6). `image`: optional real photo path.
   projects: {
     tag: 'Portfolio',
     heading: 'Featured Projects',
@@ -262,7 +250,6 @@ const SITE = {
         brochure: '#',
       },
     ],
-    // Past/completed projects shown in a separate grid
     pastProjects: [
       {
         id: 'vertex-venezia',

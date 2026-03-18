@@ -1,17 +1,8 @@
-// ═══════════════════════════════════════════════
-//  VERTEX INFRAS — Renderer + Interactions
-//  Reads from SITE object in data.js.
-//  Auto-detects which page it's on and renders
-//  only the relevant sections.
-// ═══════════════════════════════════════════════
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── DETECT CURRENT PAGE ───────────────────────
   const path = window.location.pathname.split('/').pop() || 'index.html';
   const PAGE = path.replace('.html', '') || 'index';
 
-  // ── ICON LIBRARY ──────────────────────────────
   const ICONS = {
     check:    '<path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>',
     layers:   '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>',
@@ -39,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
 
-  // ═══ SHARED: NAV + FOOTER (every page) ════════
 
   const renderNav = () => {
     const links = SITE.nav.map(l => {
@@ -80,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>`);
   };
 
-  // ── SCROLL TO TOP BUTTON (all pages) ──────────
   const renderScrollTop = () => {
     const btn = document.createElement('button');
     btn.className = 'scroll-top-btn';
@@ -99,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
 
-  // ═══ PAGE BANNER (inner pages) ════════════════
 
   const renderBanner = () => {
     const data = SITE.banners[PAGE];
@@ -113,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
 
-  // ═══ SECTION RENDERERS ════════════════════════
 
   const renderHero = () => {
     const h = SITE.hero;
@@ -577,14 +564,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>`;
   };
 
-  // ═══ RENDER ═══════════════════════════════════
-  // Nav + footer on every page
   renderNav();
   renderFooter();
   renderScrollTop();
-
-  // Page-specific sections — only runs if the
-  // container exists on the current page's HTML
   renderBanner();
   renderHero();
   renderStats();
@@ -596,19 +578,14 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProjectDetail();
 
 
-  // ═══ INTERACTIONS ═════════════════════════════
-
-  // ── Navbar scroll ──────────────────────────────
   const nav = document.getElementById('navbar');
   const isHome = PAGE === 'index';
-  // Inner pages start scrolled (dark banner, not full hero)
   if (!isHome) nav.classList.add('scrolled');
 
   window.addEventListener('scroll', () => {
     if (isHome) nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  // ── Mobile menu ────────────────────────────────
   document.getElementById('hamburger').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('active');
   });
@@ -616,13 +593,11 @@ document.addEventListener('DOMContentLoaded', () => {
     a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active'))
   );
 
-  // ── Scroll reveal ──────────────────────────────
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ── Counter animation (if stats bar exists) ───
   const statsBar = document.getElementById('stats');
   if (statsBar) {
     let counted = false;
@@ -641,7 +616,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.3 }).observe(statsBar);
   }
 
-  // ── Contact form (if on contact page) ─────────
   const submitBtn = document.getElementById('submitBtn');
   if (submitBtn) {
     submitBtn.addEventListener('click', () => {
@@ -659,7 +633,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Hero parallax (home only) ──────────────────
   if (isHome) {
     const heroContent = document.querySelector('.hero-content');
     const heroGrid = document.querySelector('.hero-grid-lines');

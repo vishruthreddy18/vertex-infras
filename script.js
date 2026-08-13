@@ -64,12 +64,23 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('active');
         const filter = btn.dataset.filter;
 
+        let featuredVisible = 0, pastVisible = 0;
+
         document.querySelectorAll('#projects-grid .project-card').forEach(card => {
-          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.style.display = show ? '' : 'none';
+          if (show) featuredVisible++;
         });
         document.querySelectorAll('#past-grid .past-card').forEach(card => {
-          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.style.display = show ? '' : 'none';
+          if (show) pastVisible++;
         });
+
+        const featuredSection = document.getElementById('featured-section');
+        const pastSection = document.getElementById('past-section');
+        if (featuredSection) featuredSection.style.display = featuredVisible ? '' : 'none';
+        if (pastSection) pastSection.style.display = pastVisible ? '' : 'none';
       });
     });
   }
@@ -154,6 +165,71 @@ document.addEventListener('DOMContentLoaded', () => {
         if (heroGrid) heroGrid.style.transform = `translateY(${y * 0.15}px)`;
       }
     }, { passive: true });
+  }
+
+  // ── Gallery lightbox (project detail pages) ─────
+  const galleryItems = document.querySelectorAll('.pd-gallery-item');
+  if (galleryItems.length) {
+    const urls = Array.from(galleryItems).map(item => {
+      const match = item.style.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+      return match ? match[1] : null;
+    });
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-nav lightbox-prev" aria-label="Previous photo">&#8249;</button>
+      <img class="lightbox-img" alt="">
+      <button class="lightbox-nav lightbox-next" aria-label="Next photo">&#8250;</button>
+    `;
+    document.body.appendChild(lightbox);
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    if (urls.filter(Boolean).length <= 1) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+    }
+    let currentIndex = 0;
+
+    const showImage = (i) => {
+      currentIndex = (i + urls.length) % urls.length;
+      lightboxImg.src = urls[currentIndex];
+    };
+    const openLightbox = (i) => {
+      showImage(i);
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    };
+
+    galleryItems.forEach((item, i) => {
+      if (!urls[i]) return;
+      item.classList.add('pd-gallery-clickable');
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', 'View larger image');
+      item.addEventListener('click', () => openLightbox(i));
+      item.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
+      });
+    });
+
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex - 1); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex + 1); });
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft' && urls.length > 1) showImage(currentIndex - 1);
+      else if (e.key === 'ArrowRight' && urls.length > 1) showImage(currentIndex + 1);
+    });
   }
 
   // ── Contact form ────────────────────────────────

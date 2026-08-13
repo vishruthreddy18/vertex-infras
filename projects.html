@@ -24,15 +24,17 @@
 <body>
   
   <nav class="nav" id="navbar">
-    <a href="index.html" class="logo">Vertex Infras</a>
+    <a href="index.html" class="logo">
+      Vertex Infras
+      <span class="logo-tagline">Towards Finest Engineering</span>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html" class="active">Projects</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
           
     </ul>
-    <a href="contact.html" class="nav-cta">Enquire Now</a>
+    <a href="contact.html" class="nav-cta">Enquire</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -40,33 +42,33 @@
   
     <section class="page-banner" id="page-banner">
       <div class="banner-content">
-        <span class="hero-tag">Towards Finest Engineering</span>
         <h1>Our Projects</h1>
-        <p class="banner-sub">A portfolio of landmark infrastructure</p>
+        <p class="banner-sub"><span class="banner-sub-flanked">A portfolio of landmark infrastructure</span></p>
       </div>
     </section>
 
   <section class="section-lg" id="projects">
     <div class="container-wide">
-      <div class="projects-header">
-        <div class="section-intro reveal">
-          <span class="section-tag">Portfolio</span>
-          <h2 class="section-title">Featured Projects</h2>
-          <div class="section-line"></div>
-          <p class="section-desc">A selection of landmark projects that reflect our engineering precision and commitment to excellence.</p>
-        </div>
-      </div>
       <div class="proj-filters">
         <button class="proj-filter active" data-filter="all">All</button>
         <button class="proj-filter" data-filter="apartments">Apartments</button>
         <button class="proj-filter" data-filter="villas">Villas</button>
         <button class="proj-filter" data-filter="other">Other Projects</button>
       </div>
+    </div>
+
+    <div class="container-wide" id="featured-section" style="margin-top:5rem">
+      <div class="projects-header">
+        <div class="section-intro center reveal">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="section-line"></div>
+        </div>
+      </div>
       <div class="projects-grid" id="projects-grid">
 
         <a href="vertex-vista.html" class="project-card reveal" data-category="villas">
-          <div class="card-bg proj-1" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="card-status">Ready to Move</div>
+          <div class="card-bg proj-1" style="background-image:url('images/vertex-vista/thumb.jpg');background-size:cover;background-position:center">
+            <div class="card-status">Ready to Move In</div>
           </div>
           <div class="card-content">
             <div class="card-tag">Villas</div>
@@ -77,9 +79,9 @@
             </div>
             <div class="card-stats">
               <div class="card-stat"><div class="card-stat-val">21</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">4 BHK</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">Few Left</div><div class="card-stat-key">Availability</div></div>
+              <div class="card-stat"><div class="card-stat-val">3 BHK</div><div class="card-stat-key">Bedrooms</div></div>
+              <div class="card-stat"><div class="card-stat-val">2,027-2,219</div><div class="card-stat-key">Sizes</div></div>
+              <div class="card-stat"><div class="card-stat-val">3</div><div class="card-stat-key">Units Left</div></div>
             </div>
             <div class="card-arrow">View Details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
@@ -87,7 +89,7 @@
 
         <a href="vertex-wellington-current.html" class="project-card reveal" data-category="apartments">
           <div class="card-bg proj-2" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="card-status">Selling Fast</div>
+            <div class="card-status">Ready to Move In</div>
           </div>
           <div class="card-content">
             <div class="card-tag">Apartments</div>
@@ -97,73 +99,31 @@
               Gunjur, Bengaluru
             </div>
             <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">180+</div><div class="card-stat-key">Total Units</div></div>
+              <div class="card-stat"><div class="card-stat-val">32</div><div class="card-stat-key">Total Units</div></div>
               <div class="card-stat"><div class="card-stat-val">2 &amp; 3 BHK</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">Limited</div><div class="card-stat-key">Units Left</div></div>
+              <div class="card-stat"><div class="card-stat-val">1,077-1,666</div><div class="card-stat-key">Sizes</div></div>
+              <div class="card-stat"><div class="card-stat-val">4</div><div class="card-stat-key">Units Left</div></div>
             </div>
             <div class="card-arrow">View Details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
         </a>
 
-        <a href="vertex-vihanta.html" class="project-card reveal" data-category="apartments">
+        <a href="vertex-vihanta.html" class="project-card reveal" data-category="villas">
           <div class="card-bg proj-3" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="card-status status-launch">Pre-Launch</div>
-          </div>
-          <div class="card-content">
-            <div class="card-tag">Apartments</div>
-            <h3>Vertex Vihanta</h3>
-            <div class="card-location">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Bengaluru
-            </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">Register</div><div class="card-stat-key">Interest</div></div>
-            </div>
-            <div class="card-arrow">View Details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-          </div>
-        </a>
-
-        <a href="vertex-placeholder-apartments.html" class="project-card reveal" data-category="apartments">
-          <div class="card-bg proj-4" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="card-status status-launch">Coming Soon</div>
-          </div>
-          <div class="card-content">
-            <div class="card-tag">Apartments</div>
-            <h3>Upcoming Project</h3>
-            <div class="card-location">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Bengaluru
-            </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Units Left</div></div>
-            </div>
-            <div class="card-arrow">View Details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-          </div>
-        </a>
-
-        <a href="vertex-placeholder-villas.html" class="project-card reveal" data-category="villas">
-          <div class="card-bg proj-5" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="card-status status-launch">Coming Soon</div>
+            <div class="card-status status-launch">Investment Opportunity</div>
           </div>
           <div class="card-content">
             <div class="card-tag">Villas</div>
-            <h3>Upcoming Villa Project</h3>
+            <h3>Vertex Vihanta</h3>
             <div class="card-location">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Bengaluru
+              Muthsandra, Varthur
             </div>
             <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Units Left</div></div>
+              <div class="card-stat"><div class="card-stat-val">2.20</div><div class="card-stat-key">Acres</div></div>
+              <div class="card-stat"><div class="card-stat-val">4 BHK</div><div class="card-stat-key">Bedrooms</div></div>
+              <div class="card-stat"><div class="card-stat-val">2,025-2,250</div><div class="card-stat-key">Built-up (sq ft)</div></div>
+              <div class="card-stat"><div class="card-stat-val">5</div><div class="card-stat-key">Investor Slots</div></div>
             </div>
             <div class="card-arrow">View Details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
@@ -172,135 +132,78 @@
       </div>
     </div>
 
-    <div class="container-wide" style="margin-top:6rem">
-      <div class="section-intro reveal">
-        <span class="section-tag">Completed</span>
+    <div class="container-wide" style="margin-top:6rem" id="past-section">
+      <div class="section-intro center reveal">
         <h2 class="section-title">Past Projects</h2>
         <div class="section-line"></div>
       </div>
       <div class="past-grid" id="past-grid">
 
-        <a href="vertex-venezia.html" class="past-card reveal" data-category="apartments">
+        <div class="past-card reveal" data-category="apartments">
           <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="past-status">Sold Out</div>
+            <div class="past-status">Sold</div>
           </div>
           <div class="past-info">
             <div class="card-tag">Apartments</div>
             <h3>Vertex Venezia</h3>
             <div class="card-location">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              East Bengaluru
+              Gunjur, Varthur
             </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">2 BHK</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">2020</div><div class="card-stat-key">Completed</div></div>
+            <div class="card-stats"><div class="card-stat"><div class="card-stat-val">2 BHK</div><div class="card-stat-key">Configuration</div></div><div class="card-stat"><div class="card-stat-val">1,025-1,170 sq ft</div><div class="card-stat-key">Unit Size</div></div><div class="card-stat"><div class="card-stat-val">0.81 acres</div><div class="card-stat-key">Project Area</div></div><div class="card-stat"><div class="card-stat-val">2015</div><div class="card-stat-key">Completed</div></div>
             </div>
           </div>
-        </a>
+        </div>
 
-        <a href="vertex-fairmount.html" class="past-card reveal" data-category="apartments">
+        <div class="past-card reveal" data-category="apartments">
           <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="past-status">Sold Out</div>
+            <div class="past-status">Sold</div>
           </div>
           <div class="past-info">
             <div class="card-tag">Apartments</div>
             <h3>Vertex Fairmount</h3>
             <div class="card-location">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              South Bengaluru
+              Begur / Singasandra
             </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">2 &amp; 3 BHK</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">2019</div><div class="card-stat-key">Completed</div></div>
+            <div class="card-stats"><div class="card-stat"><div class="card-stat-val">2 &amp; 3 BHK</div><div class="card-stat-key">Configuration</div></div><div class="card-stat"><div class="card-stat-val">1,116-1,506 sq ft</div><div class="card-stat-key">Unit Size</div></div><div class="card-stat"><div class="card-stat-val">21 Units</div><div class="card-stat-key">Total Units</div></div><div class="card-stat"><div class="card-stat-val">2017</div><div class="card-stat-key">Completed</div></div>
             </div>
           </div>
-        </a>
+        </div>
 
-        <a href="vertex-oakwood-villas.html" class="past-card reveal" data-category="villas">
-          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="past-status">Sold Out</div>
-          </div>
-          <div class="past-info">
-            <div class="card-tag">Villas</div>
-            <h3>Vertex Oakwood Villas</h3>
-            <div class="card-location">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Whitefield, Bengaluru
-            </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">4 BHK</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">2021</div><div class="card-stat-key">Completed</div></div>
-            </div>
-          </div>
-        </a>
-
-        <a href="vertex-wellington-past.html" class="past-card reveal" data-category="apartments">
-          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="past-status">Sold Out</div>
-          </div>
-          <div class="past-info">
-            <div class="card-tag">Apartments</div>
-            <h3>Vertex Wellington</h3>
-            <div class="card-location">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Gunjur, Bengaluru
-            </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">2 &amp; 3 BHK</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">2022</div><div class="card-stat-key">Completed</div></div>
-            </div>
-          </div>
-        </a>
-
-        <a href="vertex-exotica.html" class="past-card reveal" data-category="apartments">
+        <div class="past-card reveal" data-category="apartments">
           <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="past-status">Sold Out</div>
+            <div class="past-status">Sold</div>
           </div>
           <div class="past-info">
             <div class="card-tag">Apartments</div>
-            <h3>Vertex Exotica</h3>
+            <h3>Vertex Exortica</h3>
             <div class="card-location">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Bengaluru
+              Kasavanahalli, Bengaluru
             </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Total Units</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Bedrooms</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">2018</div><div class="card-stat-key">Completed</div></div>
+            <div class="card-stats"><div class="card-stat"><div class="card-stat-val">2-3 BHK</div><div class="card-stat-key">Configuration</div></div><div class="card-stat"><div class="card-stat-val">~1.00 acre</div><div class="card-stat-key">Project Area</div></div><div class="card-stat"><div class="card-stat-val">15 Units</div><div class="card-stat-key">Total Units</div></div><div class="card-stat"><div class="card-stat-val">2011</div><div class="card-stat-key">Completed</div></div>
             </div>
           </div>
-        </a>
+        </div>
 
-        <a href="infosys-campus-bengaluru.html" class="past-card reveal" data-category="other">
-          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
-            <div class="past-status status-completed">Completed</div>
+        <div class="past-card reveal" data-category="apartments">
+          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
+            <div class="past-status">Sold</div>
           </div>
           <div class="past-info">
-            <div class="card-tag">Contract</div>
-            <h3>Infosys Campus Development</h3>
+            <div class="card-tag">Apartments</div>
+            <h3>Siri Habitat</h3>
             <div class="card-location">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Bengaluru
+              Vajarahalli / BCMC Layout, Kanakapura Road
             </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">Civil</div><div class="card-stat-key">Scope</div></div>
-              <div class="card-stat"><div class="card-stat-val">Structural</div><div class="card-stat-key">Scope</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">2018</div><div class="card-stat-key">Completed</div></div>
+            <div class="card-stats"><div class="card-stat"><div class="card-stat-val">2 &amp; 3 BHK</div><div class="card-stat-key">Configuration</div></div><div class="card-stat"><div class="card-stat-val">1,085-1,660 sq ft</div><div class="card-stat-key">Unit Size</div></div><div class="card-stat"><div class="card-stat-val">20 Units</div><div class="card-stat-key">Total Units</div></div><div class="card-stat"><div class="card-stat-val">2013</div><div class="card-stat-key">Completed</div></div>
             </div>
           </div>
-        </a>
+        </div>
 
-        <a href="gmr-group-hyderabad.html" class="past-card reveal" data-category="other">
+        <div class="past-card reveal" data-category="other">
           <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
             <div class="past-status status-completed">Completed</div>
           </div>
@@ -311,34 +214,92 @@
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               Hyderabad
             </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">Infrastructure</div><div class="card-stat-key">Scope</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Contract Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">2020</div><div class="card-stat-key">Completed</div></div>
-            </div>
           </div>
-        </a>
+        </div>
 
-        <a href="kempegowda-airport-bengaluru.html" class="past-card reveal" data-category="other">
+        <div class="past-card reveal" data-category="other">
           <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
             <div class="past-status status-completed">Completed</div>
           </div>
           <div class="past-info">
             <div class="card-tag">Contract</div>
-            <h3>Kempegowda International Airport</h3>
+            <h3>Bangalore International Airport</h3>
             <div class="card-location">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               Bengaluru
             </div>
-            <div class="card-stats">
-              <div class="card-stat"><div class="card-stat-val">Civil</div><div class="card-stat-key">Scope</div></div>
-              <div class="card-stat"><div class="card-stat-val">Infrastructure</div><div class="card-stat-key">Scope</div></div>
-              <div class="card-stat"><div class="card-stat-val">TBA</div><div class="card-stat-key">Dev. Size</div></div>
-              <div class="card-stat"><div class="card-stat-val">2022</div><div class="card-stat-key">Completed</div></div>
+          </div>
+        </div>
+
+        <div class="past-card reveal" data-category="other">
+          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
+            <div class="past-status status-completed">Completed</div>
+          </div>
+          <div class="past-info">
+            <div class="card-tag">Contract</div>
+            <h3>GVK Group</h3>
+            <div class="card-location">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Bengaluru
             </div>
           </div>
-        </a>
+        </div>
+
+        <div class="past-card reveal" data-category="other">
+          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
+            <div class="past-status status-completed">Completed</div>
+          </div>
+          <div class="past-info">
+            <div class="card-tag">Contract</div>
+            <h3>Suraj Diamonds</h3>
+            <div class="card-location">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Bengaluru
+            </div>
+          </div>
+        </div>
+
+        <div class="past-card reveal" data-category="other">
+          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
+            <div class="past-status status-completed">Completed</div>
+          </div>
+          <div class="past-info">
+            <div class="card-tag">Contract</div>
+            <h3>KPVP</h3>
+            <div class="card-location">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Bengaluru
+            </div>
+          </div>
+        </div>
+
+        <div class="past-card reveal" data-category="other">
+          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
+            <div class="past-status status-completed">Completed</div>
+          </div>
+          <div class="past-info">
+            <div class="card-tag">Contract</div>
+            <h3>Tropical Habitat India</h3>
+            <div class="card-location">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Bengaluru
+            </div>
+          </div>
+        </div>
+
+        <div class="past-card reveal" data-category="other">
+          <div class="past-thumb" style="background-image:url('https://images.unsplash.com/photo-1563213126-a4273aed2016?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center">
+            <div class="past-status status-completed">Completed</div>
+          </div>
+          <div class="past-info">
+            <div class="card-tag">Contract</div>
+            <h3>Medreich Limited</h3>
+            <div class="card-location">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Bengaluru
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>

@@ -19,12 +19,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vertexinfras.com/testimonials.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://vertexinfras.com/contact.html</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -49,18 +43,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vertexinfras.com/vertex-placeholder-apartments.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vertexinfras.com/vertex-placeholder-villas.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://vertexinfras.com/vertex-venezia.html</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -73,26 +55,14 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vertexinfras.com/vertex-oakwood-villas.html</loc>
-    <lastmod>2026-04-12</lastmod>
+    <loc>https://vertexinfras.com/vertex-exortica.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vertexinfras.com/vertex-wellington-past.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vertexinfras.com/vertex-exotica.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://vertexinfras.com/infosys-campus-bengaluru.html</loc>
-    <lastmod>2026-04-12</lastmod>
+    <loc>https://vertexinfras.com/siri-habitat.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -104,7 +74,37 @@
   </url>
   <url>
     <loc>https://vertexinfras.com/kempegowda-airport-bengaluru.html</loc>
-    <lastmod>2026-04-12</lastmod>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vertexinfras.com/gvk-group-bengaluru.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vertexinfras.com/suraj-diamonds-bengaluru.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vertexinfras.com/kpvp-bengaluru.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vertexinfras.com/tropical-habitat-bengaluru.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vertexinfras.com/medreich-bengaluru.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -232,22 +232,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Contact form ────────────────────────────────
-  const submitBtn = document.getElementById('submitBtn');
-  if (submitBtn) {
-    submitBtn.addEventListener('click', () => {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const msg = document.getElementById('message').value.trim();
-      if (!name || !email || !msg) { alert('Please fill in at least your name, email, and project details.'); return; }
-      const subject = encodeURIComponent('Property Enquiry from ' + name);
-      const body = encodeURIComponent(
-        'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + document.getElementById('phone').value + '\nService: ' + document.getElementById('service').value + '\n\nMessage:\n' + msg
-      );
-      window.location.href = 'mailto:hello@vertexinfras.com?subject=' + subject + '&body=' + body;
-      submitBtn.textContent = 'Redirecting to Mail\u2026';
-      setTimeout(() => submitBtn.textContent = 'Send Enquiry', 3000);
-    });
-  }
 
 });
